@@ -6,6 +6,8 @@ import { WORDS } from "../../data";
 import FormInput from "../FormInput/FormInput";
 import DisplayResults from "../DisplayResults/DisplayResults";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import WonBanner from "../WonBanner/WonBanner";
+import LostBanner from "../LostBanner/LostBanner";
 // import Guess from "../Guess/Guess";
 
 // Pick a random word on every pageload.
@@ -35,9 +37,13 @@ function Game() {
 
   return (
     <>
-      {gameStatus}
       <DisplayResults guesses={guesses} answer={answer} />
-      <FormInput handleSubmitGuess={handleSubmitGuess} />
+      <FormInput
+        handleSubmitGuess={handleSubmitGuess}
+        disabled={guesses.length === NUM_OF_GUESSES_ALLOWED}
+      />
+      {gameStatus === "won" && <WonBanner numOfGuesses={guesses.length} />}
+      {gameStatus === "lost" && <LostBanner answer={answer} />}
     </>
   );
 }

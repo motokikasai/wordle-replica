@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormInput({ handleSubmitGuess }) {
+function FormInput({ handleSubmitGuess, disabled }) {
   const [guess, setGuess] = React.useState("");
 
   function changeHandler(e) {
@@ -23,6 +23,7 @@ function FormInput({ handleSubmitGuess }) {
       <input
         id="guess-input"
         type="text"
+        disabled={disabled}
         pattern="[A-Z]{5}"
         maxLength={5}
         value={guess}
