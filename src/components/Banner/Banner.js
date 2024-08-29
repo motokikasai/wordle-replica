@@ -1,11 +1,6 @@
 import React from "react";
 
 function Banner({ result }) {
-  // console.log(
-  //   "HURRAYYYYY!!!🕺",
-  //   result && result.every((item) => item.status === "correct")
-  // );
-
   return (
     <div className="happy banner">
       <p>

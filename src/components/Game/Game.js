@@ -18,6 +18,7 @@ function Game() {
   const [gameStatus, setGameStatue] = React.useState("running");
 
   const handleSubmitGuess = (guess) => {
+    // update 'guesses' due to React setter going out of sync
     const nextGuess = [...guesses, guess];
     setGuesses(nextGuess);
 
